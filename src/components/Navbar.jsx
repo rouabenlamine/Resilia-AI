@@ -16,10 +16,17 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md shadow-sm border-b border-blue-100"
+      className="
+        fixed top-0 inset-x-0 w-screen 
+        bg-white/60 backdrop-blur-md 
+        shadow-sm border-b border-blue-100 
+        z-50
+      "
     >
-      <div className="flex items-center justify-between px-10 py-3">
-        {/* Left Section - Logo */}
+      {/* FULL WIDTH INNER CONTAINER WITH NO LEFT/RIGHT PADDING */}
+      <div className="w-full flex items-center justify-between px-4 py-3">
+
+        {/* LEFT — LOGO */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           className="flex items-center gap-3 cursor-pointer"
@@ -30,7 +37,7 @@ export default function Navbar() {
           </h1>
         </motion.div>
 
-        {/* Right Section - Navigation Links */}
+        {/* RIGHT — NAVIGATION LINKS */}
         <div className="flex items-center space-x-8 text-slate-700 font-medium">
           <Link
             to="/history"
@@ -38,12 +45,14 @@ export default function Navbar() {
           >
             <History className="w-5 h-5" /> History
           </Link>
+
           <Link
             to="/profile"
             className="flex items-center gap-2 hover:text-sky-600 transition"
           >
             <User className="w-5 h-5" /> Profile
           </Link>
+
           <Link
             to="/mood-trends"
             className="flex items-center gap-2 hover:text-sky-600 transition"
@@ -60,7 +69,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Optional subtle animated underline */}
+      {/* ANIMATED UNDERLINE */}
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: "100%" }}

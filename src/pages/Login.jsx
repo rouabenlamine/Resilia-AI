@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Input from "../components/Input";
 import { loginUser } from "../utils/auth";
 import { motion } from "framer-motion";
-
+import logo from '../assets/resilia-logo.png';
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,17 +33,26 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 via-blue-300 to-white">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#c4f0ed] via-[#c9f4e4] to-[#bef4d5]">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-8 w-full max-w-md border border-blue-200"
+        className="bg-white/70 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md border border-[#b2f2c3]/50"
       >
-        <h1 className="text-3xl font-bold text-blue-500 text-center mb-2">
+        {/* Logo */}
+        <div className="flex justify-center mb-4">
+          <img 
+            src={logo} 
+            alt="Resilia-logo.png"
+            className="h-16 w-auto drop-shadow-lg"
+          />
+        </div>
+
+        <h1 className="text-3xl font-bold text-[#66CDAA] text-center mb-2">
           Welcome back to Resilia AI
         </h1>
-        <p className="text-center text-slate-600 mb-6">
+        <p className="text-center text-gray-600 mb-6">
           Reconnect with your calm mind 🌙
         </p>
 
@@ -52,7 +61,7 @@ export default function Login() {
             className={`mb-4 text-center p-3 rounded-md ${
               message.type === "error"
                 ? "bg-red-100 text-red-700"
-                : "bg-indigo-100 text-blue-400"
+                : "bg-[#b2f2c3]/30 text-gray-700"
             }`}
           >
             {message.text}
@@ -80,17 +89,17 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-400 hover:bg-blue-600 text-white font-semibold rounded-xl py-2 mt-2 transition"
+            className="bg-gradient-to-r from-[#b2f2c3] to-[#bef4d5] hover:from-[#a0e5b1] hover:to-[#ace5c3] text-gray-800 font-semibold rounded-xl py-2 mt-2 transition shadow-md hover:shadow-lg"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        <p className="text-sm text-center text-slate-600 mt-4">
-          Don’t have an account?{" "}
+        <p className="text-sm text-center text-gray-600 mt-4">
+          Don't have an account?{" "}
           <Link
             to="/register"
-            className="text-blue-700 font-semibold hover:underline"
+            className="text-gray-800 font-semibold hover:underline"
           >
             Register
           </Link>
